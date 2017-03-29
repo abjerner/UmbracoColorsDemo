@@ -692,7 +692,7 @@ nav > ul li a,
 nav > ul li span {
 	cursor: pointer;
 	display: inline-block;
-	padding: 25px;
+	padding: 25px 15px;
 	font-size: 20px;
 	font-weight: 500;
 	color: rgba(255, 255, 255, 0.75);

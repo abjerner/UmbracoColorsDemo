@@ -1,6 +1,32 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+﻿@using Skybrud.Umbraco.PrimaryColors.Models
+@using Umbraco.Web.Models
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @{
-    Layout = "Master.cshtml";
-}
 
-@CurrentPage.GetGridHtml("content", "fanoe")
+    Layout = "Master.cshtml";
+
+    int topImageId = Model.Content.GetPropertyValue<int>("topImage");
+    IPublishedContent topImage = Umbraco.TypedMedia(topImageId);
+
+    if (topImage != null) {
+
+        PrimaryColorsModel colors = topImage.GetPropertyValue<PrimaryColorsModel>("color");
+
+        <div style="background: url(@topImage.Url.GetCropUrl(1920, 750, preferFocalPoint: true, imageCropMode: ImageCropMode.Crop)) no-repeat center center; background-size: cover;">
+            <div style="max-width: 920px; margin: 0 auto; position: relative; height: 750px;">
+                <div style="position: absolute; left: 0; bottom: 25px;">
+                    <div>
+                        <div style="background: @(colors.ColorAsHex); padding: 10px; color: white; font-size: 30px; line-height: 30px; display: inline-block;">
+                            @(Model.Content.HasValue("title") ? Model.Content.GetPropertyValue("title") : Model.Content.Name)
+                        </div>
+                    </div>
+                    <div style="background: @(colors.ColorAsHex); padding: 10px; color: white; font-size: 15px; line-height: 15px; margin-top: 10px; display: inline-block;">
+                        @Model.Content.GetPropertyValue("description")
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
+
+}

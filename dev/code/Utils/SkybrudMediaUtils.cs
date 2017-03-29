@@ -159,8 +159,6 @@ namespace SkriftColorsDemo.Utils {
 
         public static bool CalculatePrimaryColors(IMedia media) {
 
-            LogHelper.Info(typeof(SkybrudMediaUtils), "CalculatePrimaryColors(" + media.Id + ")");
-
             // Get the extension of the media
             string umbracoExtension = (media.GetValue<string>(Constants.Conventions.Media.Extension) ?? "").ToLower();
             if (umbracoExtension != "jpg" && umbracoExtension != "jpeg" && umbracoExtension != "png") return true;
