@@ -332,7 +332,9 @@
     <Content Include="config\Lang\zh-CN.user.xml" />
     <Content Include="default.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -373,6 +375,9 @@
     <Content Include="config\applications.config" />
     <Content Include="config\404handlers.config" />
     <Content Include="App_Plugins\Skybrud.Umbraco.PrimaryColors\package.manifest" />
+    <Content Include="Views\Home.cshtml" />
+    <Content Include="Views\Master.cshtml" />
+    <Content Include="Views\TextPage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
